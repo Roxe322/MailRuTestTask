@@ -1,0 +1,9 @@
+host: 127.0.0.1
+port: 9001
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+  database: 0
+
+log_level: DEBUG
