@@ -15,7 +15,7 @@ async def init_db(app: Application) -> None:
     """
     Initializes redis pool and sets it to app.
 
-    :param app: Application object
+    :param app:: Application object
     """
     config = app['config'].redis
     redis = await aioredis.create_redis_pool(
@@ -28,7 +28,7 @@ async def stop_db(app: Application) -> None:
     """
     Clears redis connection pool.
 
-    :param app: Application object
+    :param app:: Application object
     """
     db = app['db']
     db.close()
@@ -42,10 +42,10 @@ async def convert(db: aioredis.Redis,
     """
     Converts amount of currency from one to another.
 
-    :param db: Redis interface
-    :param from_: Currency from which to convert
-    :param to: Currency to which to convert
-    :param amount: How much `from_` currency to convert
+    :param db:: Redis interface
+    :param from_:: Currency from which to convert
+    :param to:: Currency to which to convert
+    :param amount:: How much `from_` currency to convert
 
     :return Amount of `from` currency converted to `to` currency
 
@@ -73,15 +73,16 @@ async def insert(db: aioredis.Redis,
     """
     Inserts new currency rates.
 
-    :param db: Redis interface
-    :param currencies: dict where keys are currencies names and
+    :param db:: Redis interface
+    :param currencies:: dict where keys are currencies names and
     values are their rates
-    :param merge If True, invalidates all old values
+    :param merge: If True, invalidates all old values
 
     """
     if not merge:
         currencies_to_delete = await db.keys(f"{KEY_PREFIX}:*")
-        await db.delete(*currencies_to_delete)
+        if currencies_to_delete:
+            await db.delete(*currencies_to_delete)
 
     currencies = {
         f"{KEY_PREFIX}:{currency.upper()}": rate

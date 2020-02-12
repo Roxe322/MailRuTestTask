@@ -24,11 +24,11 @@ def validate_currency_rate(currency_rate: Union[int, float]):
     """
     Validates that only positive not null values could be currency rates.
 
-    :param currency_rate Number which we supposed to be positive and not null
+    :param currency_rate: Number which we supposed to be positive and not null
     """
     if currency_rate <= 0:
         raise ValidationError(
-            "Only positive not null values could be currency rates"
+            "Only positive not null values could be currency rates."
         )
 
 

@@ -4,6 +4,6 @@ port: 9001
 redis:
   host: 127.0.0.1
   port: 6379
-  database: 0
+  database: 1
 
-log_level: INFO
+log_level: DEBUG

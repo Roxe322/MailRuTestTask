@@ -16,10 +16,10 @@ async def convert(request: web.Request,
     """
     Handler for converting currencies.
 
-    :param request aiohttp request object
-    :param from_ Currency from which to convert
-    :param to Currency to which to convert
-    :param amount Amount of `from_` currency to be converted
+    :param request:: aiohttp request object
+    :param from_:: Currency from which to convert
+    :param to: Currency to which to convert
+    :param amount: Amount of `from_` currency to be converted
     """
     try:
         result = await db.convert(
@@ -40,12 +40,12 @@ async def insert(request: web.Request,
     """
     Handler for updating currencies rates.
 
-    :param request aiohttp request object
-    :param currencies dict where keys are currencies names and
+    :param request: aiohttp request object
+    :param currencies: dict where keys are currencies names and
     values are their rates
-    :param merge Should we merge old and new values or not,
+    :param merge: Should we merge old and new values or not,
     represented as 0/1 value
     """
     await db.insert(request.app['db'], currencies, bool(merge))
 
-    return web.json_response({'ok': 'ok'})
+    return web.json_response({'ok': 'ok'}, status=web.HTTPCreated.status_code)
