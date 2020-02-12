@@ -10,6 +10,6 @@ poetry run python -m converter [config_file_name]
 ```
 
 ## Quality assurance
-* run ``` poetry run pytest --cov=converter tests --cov-report=html``` for run tests.
-* run ```poetry run mypy converter``` for static type checking.
-* run ```poetry run flake8 converter``` for linting.
+* ``` poetry run pytest --cov=converter tests --cov-report=html``` for run tests.
+* ```poetry run mypy converter``` for static type checking.
+* ```poetry run flake8 converter``` for linting.
