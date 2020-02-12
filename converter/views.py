@@ -16,8 +16,8 @@ async def convert(request: web.Request,
     """
     Handler for converting currencies.
 
-    :param request:: aiohttp request object
-    :param from_:: Currency from which to convert
+    :param request: aiohttp request object
+    :param from_: Currency from which to convert
     :param to: Currency to which to convert
     :param amount: Amount of `from_` currency to be converted
     """
