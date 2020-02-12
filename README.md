@@ -8,3 +8,7 @@ poetry install
 docker run --rm -it -p 6379:6379 redis:latest (or run your local)
 poetry run python -m converter [config_file_name]
 ```
+
+## Quality assurance
+* run ```poetry run mypy converter``` for static type checking.
+* run ```poetry run flake8 converter``` for linting.

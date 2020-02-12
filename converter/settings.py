@@ -26,7 +26,8 @@ def get_config(config_file_name: str) -> Config:
     """
     Loads and validates config.
 
-    :param config_file_name Name of yaml file in config folder from which config will be loaded
+    :param config_file_name Name of yaml file in config folder
+    from which config will be loaded
     """
     config_path = CONFIG_PATH.format(config_file_name)
 

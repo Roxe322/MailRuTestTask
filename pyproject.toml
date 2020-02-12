@@ -14,6 +14,8 @@ marshmallow = "^3.4.0"
 webargs = "^5.5.3"
 
 [tool.poetry.dev-dependencies]
+flake8 = "^3.7.9"
+mypy = "^0.761"
 
 [build-system]
 requires = ["poetry>=0.12"]
